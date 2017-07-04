@@ -1,0 +1,16 @@
+<div class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-sm btn-primary">Предыдущая</a>
+    {% endif %}
+
+    {% if page_obj.number == 1 and not page_obj.object_list %}
+        Постов нет
+    {% else %}
+        Cтраница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+    {% endif %}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-sm btn-primary">Следующая</a>
+    {% endif %}
+
+</div>

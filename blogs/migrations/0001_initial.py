@@ -38,21 +38,21 @@ class Migration(migrations.Migration):
                 ('content', models.TextField(max_length=2000)),
                 ('creation_time', models.DateTimeField(auto_now_add=True)),
                 ('edit_time', models.DateTimeField(auto_now=True)),
-                ('blog', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.Blog')),
+                ('blog', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blogs.Blog')),
             ],
         ),
         migrations.CreateModel(
             name='Subscriptions',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('blog', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.Blog')),
+                ('blog', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blogs.Blog')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='alreadyreadpost',
             name='post',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blog.Post'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='blogs.Post'),
         ),
         migrations.AddField(
             model_name='alreadyreadpost',

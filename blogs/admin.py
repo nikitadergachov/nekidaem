@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from blog.models import Blog, Post, Subscriptions
+from blogs.models import Blog, Post, Subscribe
 
 admin.site.register(Blog)
 admin.site.register(Post)
-admin.site.register(Subscriptions)
+admin.site.register(Subscribe)
 
