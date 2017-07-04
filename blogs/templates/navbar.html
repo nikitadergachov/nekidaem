@@ -11,7 +11,9 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
-          <li><a href="#">Мой блог</a></li>
+          {% if user.is_authenticated %}
+             <li><a href="{% url 'blogs:blog' pk=user.blog.id %}">Мой блог</a></li>
+          {% endif %}
           <li><a href="{% url 'blogs:blogs' %}">Все блоги</a></li>
           <li><a href="#">Моя лента</a></li>
       </ul>

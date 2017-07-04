@@ -1,12 +1,12 @@
 {% extends  'base.html'%}
 
 {% block title %}
-    <title>Блог</title>
+    <title>Все блоги</title>
 {% endblock %}
 
 {% block content %}
     {% for blog in blog_list %}
-        <h2>{{ blog }}</h2>
+        <a href="{%  url 'blogs:blog' pk=blog.id %}"><h2>{{ blog }}</h2></a>
 
         {% if blog.has_subscribed %}
             <form action="{% url 'blogs:unsubscribe' pk=blog.id %}" method="post">
@@ -25,7 +25,10 @@
         {% endif %}
 
     {% endfor %}
+
     <div class="clearfix"></div>
+
     {% include 'pagination.html' %}
+
 
 {% endblock %}

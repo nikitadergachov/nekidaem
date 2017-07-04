@@ -1,0 +1,15 @@
+{% extends  'base.html'%}
+
+{% block title %}
+    <title>{% if post %}Редактировать пост{% else %} Создать пост {% endif %}</title>
+{% endblock %}
+
+{% block content %}
+    <h2>{% if post %}Редактировать пост {{ post.name }}
+    {% else %} Создать пост {% endif %}</h2>
+
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn-primary">Сохаранить</button>
+    </form>
+{% endblock %}

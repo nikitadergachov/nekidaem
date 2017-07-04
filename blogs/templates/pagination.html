@@ -4,7 +4,7 @@
     {% endif %}
 
     {% if page_obj.number == 1 and not page_obj.object_list %}
-        Постов нет
+        Пусто
     {% else %}
         Cтраница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
     {% endif %}

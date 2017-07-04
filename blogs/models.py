@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Blog(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Автор')
     name = models.CharField(max_length=100, verbose_name='Название блога')
 
     def __str__(self):

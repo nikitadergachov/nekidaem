@@ -1,0 +1,35 @@
+{% extends  'base.html'%}
+
+{% block title %}
+    <title>Блог {{ blog.name }}</title>
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <h2>{{ blog.owner}}</h2>
+        <h2>Блог "{{ blog.name }}"</h2>
+    </div>
+
+    <div class="clearfix"></div>
+
+     {% for post in post_list %}
+         {% if user == blog.owner %}
+            <a href="{% url 'blogs:update' pk=blog.id post_id=post.id %}">
+                <h3>{{ post.name }}</h3>
+            </a>
+        {% endif %}
+         <p>{{ post.content }}</p>
+         <p>Дата создания {{ post.creation_time }}</p>
+    {% endfor %}
+
+    <br>
+
+    {% if user == blog.owner %}
+        <a href="{% url 'blogs:create' pk=blog.id %}">Добавить пост</a>
+    {% endif %}
+
+    <div class="clearfix"></div>
+
+    {% include 'pagination.html' %}
+
+{% endblock %}
